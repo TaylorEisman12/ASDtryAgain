@@ -1,5 +1,20 @@
 $('#index').on('pageinit', function(){
 	//code needed for home page goes here
+	$('#addBill').on('click', function(){
+
+		var myForm = $('#addBill');
+		    myForm.validate({
+			invalidHandler: function(form, validator) {
+			},
+			submitHandler: function() {
+		var data = myForm.serializeArray();
+			storeData(data);
+		}
+	});
+	
+	//any other code needed for addItem page goes here
+	
+});
 });	
 
 $( '#remoteData' ).on('pageinit', function(){
