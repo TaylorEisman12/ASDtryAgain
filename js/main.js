@@ -1,6 +1,6 @@
 $('#index').on('pageinit', function(){
 	//code needed for home page goes here
-	$('#addBill').on('click', function(){
+	/*$('#addBill').on('click', function(){
 
 		var myForm = $('#addBill');
 		    myForm.validate({
@@ -10,11 +10,10 @@ $('#index').on('pageinit', function(){
 		var data = myForm.serializeArray();
 			storeData(data);
 		}
-	});
+	});*/
 	
 	//any other code needed for addItem page goes here
 	
-});
 });	
 
 $( '#remoteData' ).on('pageinit', function(){
@@ -121,6 +120,36 @@ $( '#remoteData' ).on('pageinit', function(){
         });
     });
 
+});
+
+$( '#all' ).on('pageinit', function(){
+
+		$('#allBills').empty();
+        $.ajax( {
+            url: 'xhr/data.json',
+            type: 'GET',
+            dataType: 'json',
+            success:function ( result ) {
+				//console.log(result);
+                for ( var i = 0, len = result.bills.length; i < len; i++ ) {
+                    var item = result.bills[i];
+					//console.log(item);
+                    $( ' ' + 
+					'<div class="bills">' +
+					'<p>' + item.compName[0]      + " " + item.compName[1] +
+					'<br>' + item.category[0]   + " " + item.category[1] + 
+					'<br>' + item.compEmail[0] + " " + item.compEmail[1] + 
+					'<br>' + item.compWeb[0]    + " " + item.compWeb[1] +
+					'<br>' + item.payBy[0]    + " " + item.payBy[1] +
+					'<br>' + item.pastDue[0]    + " " + item.pastDue[1] +
+					'<br>' + item.budgetPercent[0]    + " " + item.budgetPercent[1] +
+					'<br>' + item.date[0]        + " " + item.date[1] +
+					'<br>' + item.notes[0]       + " " + item.notes[1] + '</p>' +
+					'</div>'
+					).appendTo( '#allBills' );
+                }
+            }
+        });
 });
 
 /*	$('#addBill').on('click', function(){
