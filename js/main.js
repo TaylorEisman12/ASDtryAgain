@@ -108,8 +108,7 @@ $( '#remoteData' ).on('pageinit', function(){
 
 });
 
-
-$('#addBill').on('pageinit', function(){
+/*	$('#addBill').on('click', function(){
 
 		var myForm = $('#addBill');
 		    myForm.validate({
@@ -245,3 +244,4 @@ var clearLocal = function(){
 	save.addEventListener("click", validate);
 
 };
+*/
