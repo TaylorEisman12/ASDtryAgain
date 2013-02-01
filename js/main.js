@@ -1,21 +1,3 @@
-$('#index').on('pageinit', function(){
-	//code needed for home page goes here
-	/*$('#addBill').on('click', function(){
-
-		var myForm = $('#addBill');
-		    myForm.validate({
-			invalidHandler: function(form, validator) {
-			},
-			submitHandler: function() {
-		var data = myForm.serializeArray();
-			storeData(data);
-		}
-	});*/
-	
-	//any other code needed for addItem page goes here
-	
-});	
-
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
@@ -122,6 +104,14 @@ $( '#remoteData' ).on('pageinit', function(){
 
 });
 
+// function to for basic page load with variables for which page selected on index.
+// instead of each page with its own code.
+// var page = function for click on which id to be saved
+// $('page').on('pageinit', function(){
+//		all code needed same as below
+//		.appendTo('page');	
+//};
+
 $( '#all' ).on('pageinit', function(){
 
 		$('#allBills').empty();
@@ -152,7 +142,133 @@ $( '#all' ).on('pageinit', function(){
         });
 });
 
-/*	$('#addBill').on('click', function(){
+$('#cell').on('pageinit', function(){
+	
+	$('#cellBills').empty();
+	$.ajax( {
+		url: 'xhr/data.json',
+		type: 'GET',
+		dataType: 'json',
+		success:function ( result ) {
+				//console.log(result);
+				// if ( result.bills.category == "cell" )
+                for ( var i = 0, len = result.bills.length; i < len; i++ ) {
+                    var item = result.bills[i];
+					//console.log(item);
+                    $( ' ' + 
+					'<div class="bills">' +
+					'<p>' + item.compName[0]      + " " + item.compName[1] +
+					'<br>' + item.category[0]   + " " + item.category[1] + 
+					'<br>' + item.compEmail[0] + " " + item.compEmail[1] + 
+					'<br>' + item.compWeb[0]    + " " + item.compWeb[1] +
+					'<br>' + item.payBy[0]    + " " + item.payBy[1] +
+					'<br>' + item.pastDue[0]    + " " + item.pastDue[1] +
+					'<br>' + item.budgetPercent[0]    + " " + item.budgetPercent[1] +
+					'<br>' + item.date[0]        + " " + item.date[1] +
+					'<br>' + item.notes[0]       + " " + item.notes[1] + '</p>' +
+					'</div>'
+					).appendTo( '#cellBills' );
+                }
+            }
+        });
+});
+
+$('#car').on('pageinit', function(){
+	
+	$('#carBills').empty();
+	$.ajax( {
+		url: 'xhr/data.json',
+		type: 'GET',
+		dataType: 'json',
+		success:function ( result ) {
+				//console.log(result);
+				// if ( result.bills.category == "car" )
+                for ( var i = 0, len = result.bills.length; i < len; i++ ) {
+                    var item = result.bills[i];
+					//console.log(item);
+                    $( ' ' + 
+					'<div class="bills">' +
+					'<p>' + item.compName[0]      + " " + item.compName[1] +
+					'<br>' + item.category[0]   + " " + item.category[1] + 
+					'<br>' + item.compEmail[0] + " " + item.compEmail[1] + 
+					'<br>' + item.compWeb[0]    + " " + item.compWeb[1] +
+					'<br>' + item.payBy[0]    + " " + item.payBy[1] +
+					'<br>' + item.pastDue[0]    + " " + item.pastDue[1] +
+					'<br>' + item.budgetPercent[0]    + " " + item.budgetPercent[1] +
+					'<br>' + item.date[0]        + " " + item.date[1] +
+					'<br>' + item.notes[0]       + " " + item.notes[1] + '</p>' +
+					'</div>'
+					).appendTo( '#carBills' );
+                }
+            }
+        });
+});
+
+$('#rent').on('pageinit', function(){
+	
+	$('#rentBills').empty();
+	$.ajax( {
+		url: 'xhr/data.json',
+		type: 'GET',
+		dataType: 'json',
+		success:function ( result ) {
+				//console.log(result);
+				// if ( result.bills.category == "rent" )
+                for ( var i = 0, len = result.bills.length; i < len; i++ ) {
+                    var item = result.bills[i];
+					//console.log(item);
+                    $( ' ' + 
+					'<div class="bills">' +
+					'<p>' + item.compName[0]      + " " + item.compName[1] +
+					'<br>' + item.category[0]   + " " + item.category[1] + 
+					'<br>' + item.compEmail[0] + " " + item.compEmail[1] + 
+					'<br>' + item.compWeb[0]    + " " + item.compWeb[1] +
+					'<br>' + item.payBy[0]    + " " + item.payBy[1] +
+					'<br>' + item.pastDue[0]    + " " + item.pastDue[1] +
+					'<br>' + item.budgetPercent[0]    + " " + item.budgetPercent[1] +
+					'<br>' + item.date[0]        + " " + item.date[1] +
+					'<br>' + item.notes[0]       + " " + item.notes[1] + '</p>' +
+					'</div>'
+					).appendTo( '#rentBills' );
+                }
+            }
+        });
+});
+
+$('#cable').on('pageinit', function(){
+	
+	$('#cableBills').empty();
+	$.ajax( {
+		url: 'xhr/data.json',
+		type: 'GET',
+		dataType: 'json',
+		success:function ( result ) {
+				//console.log(result);
+				// if ( result.bills.category == "cable" )
+                for ( var i = 0, len = result.bills.length; i < len; i++ ) {
+                    var item = result.bills[i];
+					//console.log(item);
+                    $( ' ' + 
+					'<div class="bills">' +
+					'<p>' + item.compName[0]      + " " + item.compName[1] +
+					'<br>' + item.category[0]   + " " + item.category[1] + 
+					'<br>' + item.compEmail[0] + " " + item.compEmail[1] + 
+					'<br>' + item.compWeb[0]    + " " + item.compWeb[1] +
+					'<br>' + item.payBy[0]    + " " + item.payBy[1] +
+					'<br>' + item.pastDue[0]    + " " + item.pastDue[1] +
+					'<br>' + item.budgetPercent[0]    + " " + item.budgetPercent[1] +
+					'<br>' + item.date[0]        + " " + item.date[1] +
+					'<br>' + item.notes[0]       + " " + item.notes[1] + '</p>' +
+					'</div>'
+					).appendTo( '#cableBills' );
+                }
+            }
+        });
+});
+
+/*$('#index').on('pageinit', function(){
+	//code needed for home page goes here
+	$('#addBill').on('click', function(){
 
 		var myForm = $('#addBill');
 		    myForm.validate({
@@ -162,11 +278,52 @@ $( '#all' ).on('pageinit', function(){
 		var data = myForm.serializeArray();
 			storeData(data);
 		}
-	});
+	
+	
+		var storeData = function(data){
+		if(!key){
+			var id			= Math.floor(Math.random()*100000001);
+		}else{
+			id = key;
+		}
+		getSelectedRadio();
+		getCheckboxValue();
+		
+		var item					= {};
+			item.compName			= ["Company Name: ", $('#compName').val()];
+			item.category			= ["Category: ", $('#category').val()];
+			item.compEmail		= ["Company Email: ", $('#compEmail').val()];
+			item.compWeb		= ["Company Website: ", $('#compWeb').val()];
+			item.payBy			= ["PayBy: ", payByValue];
+			item.pastDue			= ["Past Due: ", pastDue];
+			item.budgetPercent		=["Budget Percent: " , $('#budgetPercent').value];
+			item.date			= ["Date Added: ", $('#date').value];
+			item.notes		= ["Notes: ", $('#notes').val()];
+		
+		localStorage.setItem(id, JSON.stringify(item));
+		alert("Bill Saved!");
+		save.off("click");
+		save.on("click", storeData);
+		window.location.reload();
+	
+	});	};
+	
+	var getSelectedRadio = function(){
+	var radios = function (){
+		$('input:radio[name="addToFav"]:checked').val();
+		return($('input:radio[name="addToFav"]:checked').val());
+
+};
+
+}; 
 	
 	//any other code needed for addItem page goes here
 	
-});
+});	
+
+
+
+
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
@@ -216,43 +373,6 @@ var getData = function(){
 
 
 
-
-var storeData = function(data){
-	if(!key){
-			var id			= Math.floor(Math.random()*100000001);
-		}else{
-			id = key;
-		}
-		getSelectedRadio();
-		getCheckboxValue();
-		
-		var item					= {};
-			item.compName			= ["Company Name: ", $('#compName').val()];
-			item.category			= ["Category: ", $('#category').val()];
-			item.compEmail		= ["Company Email: ", $('#compEmail').val()];
-			item.compWeb		= ["Company Website: ", $('#compWeb').val()];
-			item.payBy			= ["PayBy: ", payByValue];
-			item.pastDue			= ["Past Due: ", pastDue];
-			item.budgetPercent		=["Budget Percent: " , $('#budgetPercent').value];
-			item.date			= ["Date Added: ", $('#date').value];
-			item.notes		= ["Notes: ", $('#notes').val()];
-		
-		localStorage.setItem(id, JSON.stringify(item));
-		alert("Bill Saved!");
-		save.off("click");
-		save.on("click", storeData);
-		window.location.reload();
-	
-	};
-	
-	var getSelectedRadio = function(){
-	var radios = function (){
-		$('input:radio[name="addToFav"]:checked').val();
-		return($('input:radio[name="addToFav"]:checked').val());
-
-};
-
-}; 
 
 var	deleteItem = function (){
 	var ask = confirm("Are you sure you want to delete this bill?");
