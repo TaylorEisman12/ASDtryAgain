@@ -1,3 +1,4 @@
+
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
@@ -266,9 +267,9 @@ $('#cable').on('pageinit', function(){
         });
 });
 
-/*$('#index').on('pageinit', function(){
+('#index').on('pageinit', function(){
 	//code needed for home page goes here
-	$('#addBill').on('click', function(){
+	$('#submit').on('click', function(){
 
 		var myForm = $('#addBill');
 		    myForm.validate({
@@ -323,7 +324,7 @@ $('#cable').on('pageinit', function(){
 
 
 
-
+/*
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
