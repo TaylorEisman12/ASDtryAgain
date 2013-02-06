@@ -1,4 +1,3 @@
-
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
@@ -322,7 +321,40 @@ $('#cable').on('pageinit', function(){
 	
 });	
 
+var	deleteItem = function (){
+	var ask = confirm("Are you sure you want to delete this bill?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			alert("Bill was deleted.");
+			window.location.reload();
+		}else{
+			alert("Bill was not deleted.");
+		}		
+};
+					
+var clearLocal = function(){
+	if(localStorage.length === 0){
+			alert("No data to clear.");
+		}else{
+			localStorage.clear();
+			alert("All Bills are deleted");
+			window.location.reload();
+			return false;
+		}
+	}
+	
+	var pastDueValue,
+		pastDueValue = "No",
+		errMsg = ge('errors');
+	
+	makeCats();
 
+	var clearLink = ge('clear');
+	clearLink.addEventListener("click", clearLocal);
+	var save = ge('submit');
+	save.addEventListener("click", validate);
+
+};
 
 /*
 
@@ -375,38 +407,5 @@ var getData = function(){
 
 
 
-var	deleteItem = function (){
-	var ask = confirm("Are you sure you want to delete this bill?");
-		if(ask){
-			localStorage.removeItem(this.key);
-			alert("Bill was deleted.");
-			window.location.reload();
-		}else{
-			alert("Bill was not deleted.");
-		}		
-};
-					
-var clearLocal = function(){
-	if(localStorage.length === 0){
-			alert("No data to clear.");
-		}else{
-			localStorage.clear();
-			alert("All Bills are deleted");
-			window.location.reload();
-			return false;
-		}
-	}
-	
-	var pastDueValue,
-		pastDueValue = "No",
-		errMsg = ge('errors');
-	
-	makeCats();
 
-	var clearLink = ge('clear');
-	clearLink.addEventListener("click", clearLocal);
-	var save = ge('submit');
-	save.addEventListener("click", validate);
-
-};
 */
