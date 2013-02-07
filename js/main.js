@@ -1,4 +1,3 @@
-
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
