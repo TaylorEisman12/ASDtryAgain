@@ -355,8 +355,7 @@ var clearLocal = function(){
 };*/
 
 var getData = function(){
-	$("#addBill").empty();
-		toggleControls("on");
+	$("#localStorage").empty();
 		if(localStorage.length === 0){
 			alert("There is no Local Storage so default data was added.");
 			autoFillData();
