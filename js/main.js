@@ -358,7 +358,6 @@ var getData = function(){
 	$("#localStorage").empty();
 		if(localStorage.length === 0){
 			alert("There is no Local Storage so default data was added.");
-			autoFillData();
 		}
 		var makeDiv = $('<div>');
 		makeDiv.attr("id", "items");
