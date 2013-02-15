@@ -1,4 +1,3 @@
-
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
@@ -105,6 +104,9 @@ $( '#remoteData' ).on('pageinit', function(){
 
 });
 
+	
+	
+
 // function to for basic page load with variables for which page selected on index.
 // instead of each page with its own code.
 // var page = function for click on which id to be saved
@@ -129,7 +131,7 @@ $( '#remoteData' ).on('pageinit', function(){
 */
 
 $( '#all' ).on('pageinit', function(){
-
+		
 		$('#allBills').empty();
         $.ajax( {
             url: 'xhr/data.json',
@@ -282,73 +284,41 @@ $('#cable').on('pageinit', function(){
             }
         });
 });
-/*
-('#addBill').on('pageinit', function(){
-	//code needed for home page goes here
-	$('#submit').on('click', function(){
 
-		var myForm = $('#addBill');
-		    myForm.validate({
-			invalidHandler: function(form, validator) {
-			},
-			submitHandler: function() {
-		var data = myForm.serializeArray();
-			storeData(data);
-		}
-	
-	
-		var storeData = function(data){
-		if(!key){
-			var id			= Math.floor(Math.random()*100000001);
-		}else{
-			id = key;
-		}
-		getSelectedRadio();
-		getCheckboxValue();
+$('#addBill').on('pageinit', function(){
+	$('#submit').on('click', function(e){
+		e.preventDefault();
+		var itemId = $('now');
 		
 		var item					= {};
-			item.compName			= ["Company Name: ", $('#compName').val()];
-			item.category			= ["Category: ", $('#category').val()];
-			item.compEmail		= ["Company Email: ", $('#compEmail').val()];
-			item.compWeb		= ["Company Website: ", $('#compWeb').val()];
-			item.payBy			= ["PayBy: ", payByValue];
-			item.pastDue			= ["Past Due: ", pastDue];
-			item.budgetPercent		=["Budget Percent: " , $('#budgetPercent').value];
-			item.date			= ["Date Added: ", $('#date').value];
-			item.notes		= ["Notes: ", $('#notes').val()];
+			item.category			= ["Category: ", $('categories').value];
+			item.compName			= ["Company Name: ", $('compName').value];
+			item.compEmail			= ["Company Email: ", $('compEmail').value];
+			item.compWeb			= ["Company Website: ", $('compWeb').value];
+			item.payBy				= ["Pay By: ", $('payBy').value];
+			item.pastDue			= ["Past Due: ", $('pastDue').value];
+			item.budgetPercent		= ["Percent of Budget: ", $('budgetPercent').value];
+			item.date				= ["Date Added: ", $('date').value];
+			item.notes				= ["Notes: ", $('notes').value];
 		
-		localStorage.setItem(id, JSON.stringify(item));
+		localStorage.setItem(itemId, JSON.stringify(item));
 		alert("Bill Saved!");
-		save.off("click");
-		save.on("click", storeData);
-		window.location.reload();
-	
-	});	};
-	
-	var getSelectedRadio = function(){
-	var radios = function (){
-		$('input:radio[name="addToFav"]:checked').val();
-		return($('input:radio[name="addToFav"]:checked').val());
-
-};
-
-}; 
-	
-	//any other code needed for addItem page goes here
-	
-});	
+		//console.log(compName);
+	});
+		 //alert("Page Loaded");
+});
 
 var	deleteItem = function (){
 	var ask = confirm("Are you sure you want to delete this bill?");
 		if(ask){
-			localStorage.removeItem(this.key);
+			localStorage.removeItem(this.key);	
 			alert("Bill was deleted.");
 			window.location.reload();
 		}else{
 			alert("Bill was not deleted.");
 		}		
 };
-					
+/*					
 var clearLocal = function(){
 	if(localStorage.length === 0){
 			alert("No data to clear.");
@@ -373,16 +343,16 @@ var clearLocal = function(){
 
 };
 
-
+*/
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
-var autofillData = function (){
+/*var autofillData = function (){
 	 .each(var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
-};
+};*/
 
 var getData = function(){
 	$("#addBill").empty();
@@ -421,11 +391,10 @@ var getData = function(){
 };
 
 
-
+/*
 function BPupdate(e){
 	document.getElementById('BPValue').innerHTML = e;	
 }
-window.addEventListener("DOMContentLoaded", function(){
 
 	function $(x){
 		var theElement = document.getElementById(x);
@@ -433,7 +402,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function makeCats(){
-		var formTag = document.getElementsByTagName("form"),
+		var formTag = $('form'),
 			selectLi = $('select'),
 			makeSelect = document.createElement('select');
 			makeSelect.setAttribute("id", "categories");         
@@ -483,31 +452,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			default:
 				return false;
 		}
-	}
-
-	function storeData(key){
-		if(!key){
-			var id			= Math.floor(Math.random()*100000001);
-		}else{
-			id = key;
-		}
-		getSelectedRadio();
-		getCheckboxValue();
-		
-		var item					= {};
-			item.category			= ["Category: ", $('categories').value];
-			item.compName			= ["Company Name: ", $('compName').value];
-			item.compEmail			= ["Company Email: ", $('compEmail').value];
-			item.compWeb			= ["Company Website: ", $('compWeb').value];
-			item.payBy				= ["Pay By: ", payByValue];
-			item.pastDue			= ["Past Due: ", pastDueValue];
-			item.budgetPercent		= ["Percent of Budget: ", $('budgetPercent').value];
-			item.date				= ["Date Added: ", $('date').value];
-			item.notes				= ["Notes: ", $('notes').value];
-		
-		localStorage.setItem(id, JSON.stringify(item));
-		alert("Bill Saved!");
-	
 	}
 
 	function getData(){
@@ -633,8 +577,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}
 	}
-	
-
+	*/
+/*
 	function validate(e){
 		var getCategory = $('categories');
 		var getCompName = $('compName');
@@ -677,28 +621,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		}else{
 			storeData(this.key);
 		}
-	}
+	}*/
 	
-	var billCategories = ["-- Category --", "Cell", "Car", "Rent", "Cable"],
+	/*var billCategories = ["-- Category --", "Cell", "Car", "Rent", "Cable"],
 		payByValue,
 		pastDueValue = "No",
 		errMsg = $('errors');
 	
-	makeCats();
+	//makeCats();
 	
 	var displayLink = $('displayLink');	
 	displayLink.addEventListener("click", getData);
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
-	save.addEventListener("click", validate);
-
-});
-
+	save.addEventListener("click", validate);*/
+	
 
 
 
-*/
+
 
 
 

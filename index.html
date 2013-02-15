@@ -23,7 +23,7 @@
 			<div data-role="content" class="content">
 			<div id="cta">
 				<img src="images/simpleCTA.png" id="cta">
-				<p><a href="#addBill" <!-- data-rel="dialog" --> data-role="button">Add a Bill</a></p>
+				<p><a href="#addBill" data-role="button">Add a Bill</a></p> <!-- data-rel="dialog" --> 
 			</div>
 			<div data-role="controlgroup" class="required">
 				<ul data-role="listview" data-shadow="true" data-inset="true">
@@ -116,13 +116,21 @@
 					</div>
 					<!-- fieldcontain for submit and cancel -->
 					<div class="ui-grid-b">
-						<div class="ui-block-a"><p><input type="submit" value="submit" /></p></div>
+						<div class="ui-block-a"><p><input type="submit" value="submit" id="submit" /></p></div>
 						<div class="ui-block-b"><p></p></div>
 						<div class="ui-block-c"><p><a href="#index" id="cancelLink">Cancel</a></p></div>
 					</div>
 				</form>
 		</div>
-		<footer data-role="footer" data-position="fixed" ><h1>Bill Saver</h1></footer>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#remoteData" data-icon="plus">Remote Data</a></li>
+					<li><a href="#index" data-icon="home">Home</a></li>
+					<li><a href="#search" data-icon="search">Search</a></li>
+				</ul>
+			</div>
+		</div>
 	</section>
 	
 	
