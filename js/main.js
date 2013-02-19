@@ -1,3 +1,27 @@
+$(document).ready(function() {
+	$.getJSON('xhr/pages.json',function(json){
+		console.log(json);
+		$.each(json, function() {
+    		alert("Do Something Here");
+    	});
+    });
+});
+/*'<section id="'+pages[i].sectionId+'" data-role="page" data-add-back-btn="true">'+
+			'<header data-role="header"><h1>'+pages[i].header+'</h1></header>'+
+			'<div data-role="content" class="content">'+
+				'<div data-role="fieldcontain" id="'+pages[i].id+'">'+
+				'</div>'+
+			'</div>'+
+			'<div data-role="footer" data-position="fixed">'+
+				'<div data-role="navbar">'+
+					'<ul>'+
+						'<li><a href="#remoteData" data-icon="plus">Remote Data</a></li>'+
+						'<li><a href="#index" data-icon="home">Home</a></li>'+
+						'<li><a href="#localStorage" data-icon="search">Local Storage</a></li>'+
+					'</ul>'+
+				'</div>'+
+			'</div>'+
+		'</section>'*/
 $( '#remoteData' ).on('pageinit', function(){
 
 	 $( '#jsonButton' ).on( 'click', function () {
@@ -355,9 +379,9 @@ var clearLocal = function(){
 };*/
 
 var getData = function(){
-	$("#localStorage").empty();
+	$("#localStorageView").empty();
 		if(localStorage.length === 0){
-			alert("There is no Local Storage so default data was added.");
+			alert("There is no Local Storage.");		
 		}
 		var makeDiv = $('<div>');
 		makeDiv.attr("id", "items");
@@ -499,7 +523,7 @@ function BPupdate(e){
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
-	
+	*/
 	function makeItemLinks(key, linksLi){
 		var editLink = document.createElement('a');
 		editLink.href = "#";
@@ -575,7 +599,7 @@ function BPupdate(e){
 			return false;
 		}
 	}
-	*/
+	
 /*
 	function validate(e){
 		var getCategory = $('categories');
