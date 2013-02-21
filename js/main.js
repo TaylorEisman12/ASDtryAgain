@@ -6,7 +6,7 @@ $(document).ready(function() {
     	});
     });
 });
-/*'<section id="'+pages[i].sectionId+'" data-role="page" data-add-back-btn="true">'+
+/*                         '<section id="'+pages[i].sectionId+'" data-role="page" data-add-back-btn="true">'+
 			'<header data-role="header"><h1>'+pages[i].header+'</h1></header>'+
 			'<div data-role="content" class="content">'+
 				'<div data-role="fieldcontain" id="'+pages[i].id+'">'+
