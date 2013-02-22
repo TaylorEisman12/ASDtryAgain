@@ -16,7 +16,7 @@ $(document).ready(function() {
 				$('#couchList').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#")
-							.text(compName)
+							.text(notes)
 					)
 				);
 			});
@@ -26,4 +26,3 @@ $(document).ready(function() {
 });
 
 
-CHANGE TO DISPLAY CATEGORIES AND THEN SHOW BILLS WITHIN EACH CATEGORY
