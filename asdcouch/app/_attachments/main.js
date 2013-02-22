@@ -21,6 +21,16 @@ $(document).ready(function() {
 				);
 			});
 			$('#couchList').listview('refresh');
+			console.log("need to have all data display when bill selected.");
+			console.log(compName);
+			console.log(compWeb);
+			console.log(budgetPercent);
+			console.log(pastDue);
+			console.log(notes);
+			console.log(compEmail);
+			console.log(category);
+			console.log(payBy);
+			console.log(date);
 		}
 	});
 });
