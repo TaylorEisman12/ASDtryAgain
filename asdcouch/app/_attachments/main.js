@@ -15,11 +15,12 @@ $(document).ready(function() {
 				var date = bill.value.date;
 				$('#couchList').append(
 					$('<li>').append(
-						$('<a>').attr("href", "#")
+						$('<a>').attr("href", "#notes")
 							.text(notes)
 					)
-					$('#').append(
-						$('<ul>').append(
+					$('#notes').append(
+						$('<a>').attr("href", "#detailList")
+						$('#detailList').append(
 							$('<li>').append(
 								.text(category, compName, compWeb, compEmail, budgetPercent, pastDue, payBy, date, notes)
 							)
