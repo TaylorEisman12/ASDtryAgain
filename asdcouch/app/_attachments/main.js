@@ -18,9 +18,20 @@ $(document).ready(function() {
 						$('<a>').attr("href", "#")
 							.text(notes)
 					)
+					$('#').append(
+						$('<ul>').append(
+							$('<li>').append(
+								.text(category, compName, compWeb, compEmail, budgetPercent, pastDue, payBy, date, notes)
+							)
+						)
+					)
 				);
 			});
+			
+	
 			$('#couchList').listview('refresh');
+			
+			
 			console.log("need to have all data display when bill selected.");
 			console.log(compName);
 			console.log(compWeb);
