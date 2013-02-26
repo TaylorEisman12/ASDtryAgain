@@ -16,13 +16,10 @@ $(document).ready(function() {
 				$('#couchList').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#notes")
-							.text(notes)
-					)
-					$('#notes').append(
-						$('<a>').attr("href", "#detailList")
-						$('#detailList').append(
-							$('<li>').append(
-								.text(category, compName, compWeb, compEmail, budgetPercent, pastDue, payBy, date, notes)
+							.text(notes).append(
+								$('<ul>').append(
+								$('<li>').append(
+									.text(category, compName, compWeb, compEmail, budgetPercent, pastDue, payBy, date, notes)
 							)
 						)
 					)
